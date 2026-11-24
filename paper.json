@@ -28,9 +28,9 @@
         "name": "Wenlin Zhang"
       }
     ],
-    "concept_doi": null,
+    "concept_doi": "10.5281/zenodo.24487342",
     "current_version": 2,
-    "doi": null,
+    "doi": "10.5281/zenodo.24487343",
     "lean_source": {
       "revision": "88be2a120b67a9d9e724eaae970c8263d0a0e9a4",
       "url": "https://github.com/the-omega-institute/trureturing/blob/88be2a120b67a9d9e724eaae970c8263d0a0e9a4/D5/S3/QuadraticForms/AccumulatedSparseRefutation.lean"

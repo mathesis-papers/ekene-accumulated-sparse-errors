@@ -1,0 +1,457 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[colorlinks=true,allcolors=blue,breaklinks=true]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\R}{\mathbb R}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\E}{\mathbb E}
+\title{Counterexamples to Ekene E.'s accumulated sparse-error conjectures and a sharp extension of Barron's bound}
+\author{Haobo Ma\thanks{ChronoAI Pte Ltd, Singapore.}\and
+Wenlin Zhang\thanks{National University of Singapore; ChronoAI Pte Ltd, Singapore.}}
+\date{18 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Ekene E.'s finite-dimensional and Hilbert-space conjectures in
+\emph{A bound on accumulated PSD contractions}, MathOverflow question 509794,
+revision 2, paragraphs 1--2 (2 April 2026)~\cite{ekene}, are false:
+we construct equicorrelated counterexamples and give a sharp accumulated
+extension of Barron's pointwise approximation bound (1993, Lemma 1)~\cite{barron1993}.
+The harmonic upper bound has sharp leading constant one, and the optimal
+pointwise squared-error envelope is $1/(1+\sqrt d)^2$.
+The same errors are realized by uniform measures on unit vectors, with zero
+tails; one $64$-atom example has total strictly between $1.431$ and $1.432$.
+A countably supported measure in a separable Hilbert space has a divergent
+accumulated squared-error series.
+\end{abstract}
+
+\section{The two proposed bounds}
+Let $K$ be a real symmetric positive semidefinite matrix with Euclidean
+operator norm at most one, and let $x\in\R^m$ satisfy
+\begin{equation}\label{eq:hyp}
+ x_i\geq0,\qquad \|x\|_2=1,\qquad K_{ii}\leq x_i^2.
+\end{equation}
+Write
+\[
+ \tau_d(K,x)^2=
+ \min_{z\in\R^m,\ |\supp z|\leq d}(x-z)^\top K(x-z).
+\]
+The first conjecture in~\cite[paragraph 1]{ekene} proposes
+$\sum_{d=1}^{m-1}\tau_d(K,x)^2\leq1$.
+Here and below the exponent $2$ is part of the squared-error notation.
+
+For a probability measure $\mu$ on the closed unit ball of a real Hilbert
+space, with Bochner barycenter $v=\int a\,d\mu(a)$, put
+\[
+\sigma_d(v)^2=
+ \inf_{\substack{a_1,\ldots,a_d\in\supp\mu\\c_1,\ldots,c_d\in\R}}
+ \left\|v-\sum_{j=1}^d c_j a_j\right\|^2.
+\]
+The second conjecture in~\cite[paragraph 2]{ekene} proposes
+$\sum_{d=1}^{\infty}\sigma_d(v)^2\leq1$.
+The support is the actual topological support of $\mu$; repetitions and
+arbitrary real coefficients are permitted.
+
+The first assertion is introduced by ``Prove that''; the second is the
+source's stated ultimate conjecture. Its intervening weaker claim is the
+finite-dimensional estimate $\tau_d(K,x)^2\leq1/d$.
+
+The empirical approximation method is due to Maurey; Pisier's 1981 account
+uses independent samples in the proof of Lemma 2~\cite{pisier}.
+Barron~\cite[Lemma 1, p.~934, (13)]{barron1993} gives the explicit
+Hilbert convex-hull bound $(b^2-\|f\|^2)/d$ for the infimum of the squared
+error when the atoms have norm at most $b$.
+Barron, Cohen, Dahmen and DeVore~\cite[Theorems 2.1--2.2, (2.13), (2.19)]{barron}
+give explicit greedy approximation bounds, including the corresponding
+variance-form rate. These classical pointwise estimates do not imply
+summability. Below, the variable-correlation family determines both the
+sharp pointwise envelope and the leading constant of the accumulated
+finite-dimensional bound, and a direct-sum construction gives divergence
+for one countably supported measure.
+
+\section{Exact minima with variable correlation}
+Let $J_m$ be the $m\times m$ all-ones matrix and
+$H_m=\sum_{j=1}^m1/j$, with $H_0=0$.
+\begin{theorem}\label{thm:main}
+For every integer $m\geq1$ and real $0<\rho<1$, put
+$a=1-\rho$, $C=a+m\rho$, $D_d=a+d\rho$, and set
+\[
+ K_{m,\rho}=\frac{aI_m+\rho J_m}{m},\qquad
+ x_m=\frac1{\sqrt m}(1,\ldots,1).
+\]
+These satisfy~\eqref{eq:hyp} and $\|K_{m,\rho}\|_{2\to2}\leq1$.
+For every $1\leq d\leq m$,
+\begin{equation}\label{eq:error}
+ \tau_d(K_{m,\rho},x_m)^2=t_{m,d}(\rho):=
+ \frac{aC(m-d)}{m^2D_d}.
+\end{equation}
+The minimum is attained on any $d$-element support by taking
+\begin{equation}\label{eq:optimizer}
+ z_i=\frac{C}{\sqrt m D_d}
+ \quad\hbox{on that support},\qquad z_i=0\quad\hbox{elsewhere}.
+\end{equation}
+In $\R^{m+1}$, with orthonormal coordinates $e_0,e_1,\ldots,e_m$, set
+\[
+ a_i=\sqrt\rho\,e_0+\sqrt a\,e_i,\qquad
+ \mu_{m,\rho}=\frac1m\sum_{i=1}^m\delta_{a_i},\qquad
+ v_m=\frac1m\sum_{i=1}^m a_i.
+\]
+Then $\sigma_d(v_m)^2=t_{m,d}(\rho)$ for $1\leq d\leq m$, and
+$\sigma_d(v_m)^2=0$ for every $d\geq m$.
+Consequently the two accumulated errors are equal to
+\begin{equation}\label{eq:total}
+ S_m(\rho)=\frac{a(m+b)}{m^2}
+ \left((m+b)\sum_{d=1}^m\frac1{d+b}-m\right),
+ \qquad b=\frac a\rho.
+\end{equation}
+For fixed $\rho$, $S_m(\rho)=(1-\rho)\log m+O_\rho(1)$.
+In particular, neither proposed bound can be replaced by any universal
+finite constant.
+\end{theorem}
+
+\begin{proof}
+For every $y\in\R^m$,
+\[
+ y^\top K_{m,\rho}y=\frac{a\sum_i y_i^2+\rho(\sum_i y_i)^2}{m}\geq0.
+\]
+The eigenvalue on the all-ones direction is $C/m=\rho+a/m\leq1$;
+on its orthogonal complement it is $a/m>0$.
+Thus $K_{m,\rho}$ is a positive definite contraction.
+Also $(K_{m,\rho})_{ii}=1/m=(x_m)_i^2$ and $\|x_m\|_2=1$.
+
+To optimize over all real sparse vectors, put $z=\sqrt m\,c$ and define
+$s=\sum_i c_i$, $q=\sum_i c_i^2$. Direct expansion gives
+\begin{align}\label{eq:expansion}
+ (x_m-z)^\top K_{m,\rho}(x_m-z)
+ &=\rho(1-s)^2+a\sum_{i=1}^m(1/m-c_i)^2\notag\\
+ &=\rho+\frac am-2\left(\rho+\frac am\right)s+\rho s^2+aq.
+\end{align}
+If $|\supp c|\leq d$ and $d\geq1$, Cauchy--Schwarz on the actual nonzero
+support gives $q\geq s^2/d$; this includes the zero vector.
+With $s_*=dC/(mD_d)$, completing the square yields
+\begin{equation}\label{eq:completion}
+ (x_m-z)^\top K_{m,\rho}(x_m-z)-t_{m,d}(\rho)
+ =a\left(q-\frac{s^2}{d}\right)
+   +\frac{D_d}{d}(s-s_*)^2\geq0.
+\end{equation}
+Taking $c_i=C/(mD_d)$ on any $d$ coordinates and zero elsewhere
+makes both terms vanish. This proves the global lower bound and attainment,
+without restricting signs or allowing only a prescribed support.
+
+Each $a_i$ has norm one and the atoms are distinct. Their finite set is
+closed, every atom has mass $1/m$, and the complement has measure zero.
+Hence $\supp\mu_{m,\rho}=\{a_1,\ldots,a_m\}$. The finite measure has Bochner
+barycenter $v_m$. For arbitrary $c\in\R^m$ the coordinates give
+\begin{equation}\label{eq:hilbert}
+ \left\|v_m-\sum_{i=1}^m c_i a_i\right\|^2
+ =\rho(1-s)^2+a\sum_{i=1}^m(1/m-c_i)^2.
+\end{equation}
+Any $d$-tuple of support points consolidates, by summing the coefficients
+of repeated atoms, to such a vector $c$ with at most $d$ nonzero entries.
+Conversely, enumerate any such support and append fixed support points with
+coefficient zero to obtain exactly $d$ terms. Thus the two optimizing sets
+in~\eqref{eq:expansion} and~\eqref{eq:hilbert} are equal under
+$z=\sqrt m\,c$. This proves the Hilbert formula. For $d\geq m$, use all
+$m$ atoms with coefficients $1/m$ and then append zero coefficients.
+The error is zero, its minimum possible value.
+
+Finally, $t_{m,d}(\rho)=a(m+b)(m-d)/(m^2(d+b))$ and
+$(m-d)/(d+b)=(m+b)/(d+b)-1$, giving~\eqref{eq:total}.
+For fixed $b>0$, integration of the decreasing function $1/(t+b)$ gives
+\[
+ \log\frac{m+b+1}{b+1}\leq\sum_{d=1}^m\frac1{d+b}
+ \leq\log\frac{m+b}{b}.
+\]
+The sum is therefore $\log m+O_b(1)$, while $(m+b)/m=1+O_b(m^{-1})$.
+Substitution gives the claimed asymptotic.
+The Hilbert series is an ordinary convergent series with an identically zero
+tail after $d=m-1$. The case $m=1$ has an empty finite sum and total zero.
+\end{proof}
+
+\begin{corollary}\label{cor:witness}
+Both accumulated-error conjectures fail for $m=64$, $\rho=1/2$.
+\end{corollary}
+\begin{proof}
+At $\rho=1/2$, the errors and accumulated total reduce to
+\[
+ t_{m,d}(1/2)=\frac{(m+1)(m-d)}{2m^2(d+1)},\qquad
+ S_m(1/2)=\frac{m+1}{2m^2}\bigl((m+1)H_m-2m\bigr).
+\]
+Partitioning $2,\ldots,64$ into the six blocks
+$2^{j-1}<k\leq2^j$ gives $H_{64}\geq1+6/2=4$. Therefore
+\begin{equation}\label{eq:certificate}
+ S_{64}(1/2)\geq\frac{2145}{2048}>1.
+\end{equation}
+Exact rational summation further gives
+$1431/1000<S_{64}(1/2)<1432/1000$.
+\end{proof}
+
+\begin{corollary}\label{cor:bridge}
+Every finite instance satisfying~\eqref{eq:hyp} is realized by a probability
+measure on a finite subset of the Hilbert unit ball, with exactly the same
+best $d$-term squared errors for every $d\geq1$.
+\end{corollary}
+\begin{proof}
+Let $B=K^{1/2}$ and retain the indices $i$ with $x_i>0$.
+Give $b_i=Be_i/x_i$ mass $x_i^2$. These masses sum to one, and
+$\|b_i\|^2=K_{ii}/x_i^2\leq1$.
+When $x_i=0$, $\|Be_i\|^2=K_{ii}=0$, so $Be_i=0$.
+Thus the barycenter is $\sum_{x_i>0}x_iBe_i=Bx$.
+Every sparse vector $z$ gives $Bz=\sum_{x_i>0}(x_i z_i)b_i$;
+conversely each support combination is of this form, choosing one index
+for each atom and consolidating repetitions. Dropped indices contribute
+zero. Zero padding gives exactly $d$ terms in either direction.
+The error is $\|B(x-z)\|^2=(x-z)^\top K(x-z)$.
+The actual support is the finite set of distinct $b_i$ with positive mass,
+including zero when it occurs.
+\end{proof}
+
+\begin{corollary}\label{cor:divergent}
+There is a Borel probability measure on the unit sphere of a separable real
+Hilbert space with $\sum_{d=1}^\infty\sigma_d(v)^2=+\infty$.
+\end{corollary}
+\begin{proof}
+For $n\geq1$ put $w_n=2^{-n}$ and $m_n=2^{n4^n}$.
+In the Hilbert direct sum $H=\bigoplus_{n\geq1}\R^{m_n+1}$, place the
+$\rho=1/2$ atoms of Theorem~\ref{thm:main} in block $n$, and call the
+resulting measure and barycenter $\mu_n,v_n$.
+Set $\mu=\sum_{n\geq1}w_n\mu_n$. The weights sum to one;
+all atoms have norm one. Distinct atoms in the same block have distance
+one, and those in different blocks have distance $\sqrt2$.
+Their union is consequently closed, and is exactly $\supp\mu$ because
+each atom has positive mass. The Bochner barycenter is
+$v=\sum_{n\geq1}w_n v_n$, a norm-absolutely convergent series.
+
+Orthogonal projection onto block $n$ sends any $d$-term approximation
+to a combination of at most $d$ atoms of $\mu_n$.
+After dividing its coefficients by $w_n$, this gives
+$\sigma_d(v)^2\geq w_n^2\sigma_d(v_n)^2$ for every $d\geq1$.
+For the half-correlation family,
+$S_m(1/2)\geq\tfrac12\log m-2$, directly from its harmonic formula
+and $H_m\geq\log m$. Therefore
+\[
+ \sum_{d=1}^{m_n-1}\sigma_d(v)^2
+ \geq w_n^2 S_{m_n}(1/2)
+ \geq\frac{n\log2}{2}-\frac2{4^n}\longrightarrow+\infty.
+\]
+Nonnegativity of the errors proves divergence.
+\end{proof}
+
+\section{The pointwise estimate and a corrected bound}
+The weaker $1/d$ estimate mentioned in the same source is consistent with
+the counterexamples. The following form also gives a dimension-dependent
+replacement for the finite accumulated bound.
+
+\begin{proposition}\label{prop:sampling}
+Under~\eqref{eq:hyp}, for every integer $d\geq1$,
+\begin{equation}\label{eq:finite-upper}
+ \tau_d(K,x)^2\leq\frac{\operatorname{tr}K-x^\top Kx}{d}\leq\frac1d.
+\end{equation}
+Consequently, for $m\geq2$,
+$\sum_{d=1}^{m-1}\tau_d(K,x)^2
+\leq(\operatorname{tr}K-x^\top Kx)H_{m-1}\leq H_{m-1}$.
+For a Borel probability measure on the closed unit ball of a separable real
+Hilbert space,
+\begin{equation}\label{eq:hilbert-upper}
+ \sigma_d(v)^2\leq
+ \frac{\int\|a\|^2\,d\mu(a)-\|v\|^2}{d}\leq\frac1d.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Choose a random coordinate vector $Y=e_i/x_i$ with probability $x_i^2$
+over the indices with $x_i>0$. Then $\E Y=x$.
+If $x_i=0$, diagonal domination and positivity give $K_{ii}=0$.
+Thus $\E(Y^\top KY)=\sum_{x_i>0}K_{ii}=\operatorname{tr}K$.
+For independent copies $Y_1,\ldots,Y_d$, their average $Z$ has at most
+$d$ nonzero coordinates, and independence cancels all mixed centered terms:
+\[
+ \E[(x-Z)^\top K(x-Z)]
+ =\frac{\E(Y^\top KY)-x^\top Kx}{d}.
+\]
+The minimum is at most this finite average of feasible errors.
+Finally $0\leq x^\top Kx$ and
+$\operatorname{tr}K\leq\sum_i x_i^2=1$, proving~\eqref{eq:finite-upper}.
+
+In the Hilbert case, the support has full measure: in a separable metric
+space its complement is a countable union of open null sets.
+The identity map is bounded and Bochner integrable. Take independent
+$A_1,\ldots,A_d$ with law $\mu$ and average them. Almost surely these
+are support points, and
+\[
+ \E\left\|v-\frac1d\sum_{j=1}^d A_j\right\|^2
+ =\frac{\E\|A_1-v\|^2}{d}
+ =\frac{\E\|A_1\|^2-\|v\|^2}{d}.
+\]
+The infimum of feasible errors is at most their expectation.
+This proves~\eqref{eq:hilbert-upper}.
+\end{proof}
+
+\begin{corollary}\label{cor:pointwise}
+For each fixed $d\geq1$, the supremum of $\tau_d(K,x)^2$ over all
+admissible finite dimensions and pairs is
+$1/(1+\sqrt d)^2$. The same supremum holds for $\sigma_d(v)^2$ over
+Borel probabilities on separable Hilbert unit balls.
+\end{corollary}
+\begin{proof}
+Write $t=x^\top Kx$, $V=\operatorname{tr}K-t$ in the matrix case, and
+$t=\|v\|^2$, $V=\int\|a\|^2\,d\mu(a)-t$ in the Hilbert case.
+In either case $t,V\geq0$ and $t+V\leq1$.
+Multiply the random average in Proposition~\ref{prop:sampling} by a real
+scalar $\lambda$. Its expected squared error is
+$(1-\lambda)^2t+\lambda^2 V/d$.
+Minimizing over $\lambda$ gives
+\[
+ \tau_d^2\ \hbox{or}\ \sigma_d^2
+ \leq\frac{tV}{V+dt}\leq\frac{t+V}{(1+\sqrt d)^2}
+ \leq\frac1{(1+\sqrt d)^2},
+\]
+with the first fraction defined as zero when $t=V=0$.
+For $t+V>0$, put $u=t/(t+V)$; the middle inequality follows from
+\[
+ 1+(d-1)u-(1+\sqrt d)^2u(1-u)
+ =\bigl((1+\sqrt d)u-1\bigr)^2\geq0.
+\]
+For the reverse inequality, hold $d$ fixed, take
+$\rho=1/(1+\sqrt d)$ in Theorem~\ref{thm:main}, and let $m\to\infty$.
+Its exact minimum tends to
+$\rho(1-\rho)/(1-\rho+d\rho)=1/(1+\sqrt d)^2$.
+\end{proof}
+
+For a measure on $M$ distinct support points, its barycenter is a
+combination of those $M$ points, so $\sigma_d(v)=0$ for $d\geq M$.
+Thus~\eqref{eq:hilbert-upper} also gives the corrected total bound
+\[
+ \sum_{d=1}^\infty\sigma_d(v)^2
+ \leq\left(\int\|a\|^2\,d\mu(a)-\|v\|^2\right)H_{M-1}.
+\]
+
+\begin{corollary}\label{cor:sharp}
+For $m\geq2$ let $R_m$ be the supremum of
+$\sum_{d=1}^{m-1}\tau_d(K,x)^2$ over all admissible $m$-dimensional pairs
+in~\eqref{eq:hyp}. Then
+\[
+ R_m\leq H_{m-1},\qquad \lim_{m\to\infty}\frac{R_m}{\log m}=1.
+\]
+The same lower examples are finite atomic Hilbert measures. For separable
+Hilbert measures every finite prefix is bounded by its variance times
+$H_N$, and the leading constant one cannot be decreased uniformly.
+\end{corollary}
+\begin{proof}
+The upper bound is Proposition~\ref{prop:sampling}. For $m\geq3$ set
+$k=\lceil\log m\rceil\geq2$ and take $\rho=1/k$ in
+Theorem~\ref{thm:main}. Formula~\eqref{eq:total} becomes
+\[
+ S_m(1/k)=\frac{(k-1)(m+k-1)}{km^2}
+ \bigl((m+k-1)(H_{m+k-1}-H_{k-1})-m\bigr).
+\]
+The integral inequalities used above, now with $b=k-1$, give
+\[
+ H_{m+k-1}-H_{k-1}=\log m-\log k+O(1).
+\]
+Since $k/\log m\to1$, $k/m\to0$ and $\log k/\log m\to0$, the displayed
+formula gives $S_m(1/k)/\log m\to1$.
+Squeezing between $S_m(1/k)$ and $H_{m-1}$ proves the limit.
+For Hilbert prefixes, sum~\eqref{eq:hilbert-upper} from $d=1$ to $N$.
+In the same examples with $N=m-1$, the variance is
+$1-\|v_m\|^2=(1-1/k)(1-1/m)\to1$, and their totals have ratio one to
+$\log m$. This also proves sharpness of the variance-normalized coefficient.
+\end{proof}
+
+\section{Coverage and exact verification}
+The two conjectures and the weaker estimate occur in the same revision of
+the posing source. Their coverage is as follows.
+\begin{center}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.39\linewidth}>{\raggedright\arraybackslash}p{0.55\linewidth}@{}}
+\toprule
+Source item or consequence & Mathematical conclusion\\
+\midrule
+\cite{ekene}, paragraph 1: finite accumulated bound &
+Refuted-and-corrected: Corollary~\ref{cor:witness} is a counterexample;
+Proposition~\ref{prop:sampling} supplies the harmonic replacement.\\[3pt]
+\cite{ekene}, paragraph 2: Hilbert accumulated bound &
+Refuted (explicit finite atomic counterexample), Corollary~\ref{cor:witness}.
+The finite-support replacement is the variance times $H_{M-1}$.\\[3pt]
+\cite{ekene}, paragraph 2: weaker finite $1/d$ claim &
+Reproved; prior proof: Barron (1993), Lemma 1~\cite{barron1993},
+via Corollary~\ref{cor:bridge}. Proposition~\ref{prop:sampling} retains the
+second-moment variance.\\[3pt]
+Finite-to-Hilbert realization & Not posed separately; proved in
+Corollary~\ref{cor:bridge}.\\[3pt]
+Divergent series for one measure & Not posed separately; proved in
+Corollary~\ref{cor:divergent}.\\[3pt]
+Sharp logarithmic leading constant & Not posed; proved in
+Corollary~\ref{cor:sharp}.\\[3pt]
+Optimal pointwise constant for each $d$ & Not posed; proved in
+Corollary~\ref{cor:pointwise}.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The $\rho=1/2$, dimension-$64$ statements have corresponding Lean declarations at a
+fixed source version. In the
+\href{https://github.com/the-omega-institute/trureturing/blob/88be2a120b67a9d9e724eaae970c8263d0a0e9a4/D5/S3/QuadraticForms/AccumulatedSparseRefutation.lean}{quadratic-form file},
+\texttt{quadratic} gives the quadratic identity,
+\texttt{sparse\_minimum} the attained all-real minima,
+\texttt{accumulation\_gt\_one} the strict total, and
+\texttt{result} the negation of the full finite assertion. The namespace is
+\texttt{D5.S3.QuadraticForms.\allowbreak AccumulatedSparseRefutation}.
+
+In the
+\href{https://github.com/the-omega-institute/trureturing/blob/88be2a120b67a9d9e724eaae970c8263d0a0e9a4/D5/S3/HilbertOperators/Approximation/AccumulatedSupportRefutation.lean}{Hilbert-space file},
+\texttt{support\_eq} and \texttt{barycenter\_eq} identify the support and
+Bochner integral. The declaration \texttt{error\_bridge} equates quadratic
+and Hilbert errors. The declarations \texttt{tuple\_to\_coefficients} and
+\texttt{coefficients\_to\_tuple} consolidate repeated atoms and pad sparse
+vectors with zero coefficients; \texttt{errorSet\_eq} identifies the two
+optimizing sets.
+The declarations \texttt{errors\_exact}, \texttt{errors\_zero} and \texttt{ordinary\_sum}
+give the minima and ordinary series total; \texttt{result} negates the
+full Hilbert assertion. Their namespace is
+\texttt{D5.S3.HilbertOperators.\allowbreak Approximation.\allowbreak AccumulatedSupportRefutation}.
+The variable-$\rho$, arbitrary-$m$ theorem, the finite-to-Hilbert
+realization, the divergent countable example, the variance bounds,
+the optimal pointwise constant and
+the sharp logarithmic coefficient have written proofs above.
+The accompanying \path{verify.py} uses exact rational arithmetic to check
+the dimension-$64$ sum, optimizer values, Gram identities and
+square-completion identities over stated finite ranges of $m,d,\rho$.
+
+\begin{thebibliography}{9}
+\bibitem{ekene}
+Ekene E., \emph{A bound on accumulated PSD contractions},
+MathOverflow question 509794, revision 2, 2 April 2026, paragraphs 1--2.
+\url{https://mathoverflow.net/revisions/509794/2}.
+Source text licensed CC BY-SA 4.0.
+
+\bibitem{pisier}
+G. Pisier, \emph{Remarques sur un r\'esultat non publi\'e de B. Maurey},
+S\'eminaire d'analyse fonctionnelle, \'Ecole Polytechnique, 1980--1981,
+expos\'e V, 24 April 1981, pp.~1--12, Lemma 2, pp.~V.2--V.3.
+\url{https://www.numdam.org/item/SAF_1980-1981____A5_0/}.
+
+\bibitem{barron1993}
+A. R. Barron, \emph{Universal approximation bounds for superpositions of
+a sigmoidal function}, IEEE Trans. Inform. Theory \textbf{39} (1993),
+no.~3, 930--945, Lemma 1, p.~934, equation (13).
+\href{https://doi.org/10.1109/18.256500}{doi:10.1109/18.256500}.
+
+\bibitem{barron}
+A. R. Barron, A. Cohen, W. Dahmen and R. A. DeVore,
+\emph{Approximation and learning by greedy algorithms},
+Ann. Statist. \textbf{36} (2008), no. 1, 64--94.
+\href{https://doi.org/10.1214/009053607000000631}{doi:10.1214/009053607000000631}.
+\href{https://arxiv.org/abs/0803.1718v1}{arXiv:0803.1718v1},
+Theorems 2.1--2.2, equations (2.13), (2.19).
+\end{thebibliography}
+
+\medskip
+\noindent\small\copyright\ 2026 Haobo Ma and Wenlin Zhang.
+This note is licensed under the Creative Commons Attribution 4.0
+International license (CC BY 4.0).
+\end{document}

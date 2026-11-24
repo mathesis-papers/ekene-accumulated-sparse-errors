@@ -1,0 +1,66 @@
+{
+  "files": {
+    "pdf": {
+      "bytes": 96738,
+      "matches_public": true,
+      "path": "paper.pdf",
+      "public_sha256": "6a9d2408706ca91cfefa42d21f25c374ba7169c13b1135f4ec0d00a23fffce36",
+      "sha256": "6a9d2408706ca91cfefa42d21f25c374ba7169c13b1135f4ec0d00a23fffce36"
+    },
+    "source": {
+      "bytes": 110013,
+      "matches_public": true,
+      "path": "source.archive",
+      "public_sha256": "110418a75086b697c68b0909a9c9971cb17393329849248bd7c31df364065f68",
+      "sha256": "110418a75086b697c68b0909a9c9971cb17393329849248bd7c31df364065f68"
+    }
+  },
+  "source_identity": "Mathesis public projection",
+  "work": {
+    "abstract_text": "Ekene E.'s finite-dimensional and Hilbert-space conjectures in A bound on accumulated PSD contractions, MathOverflow question 509794, revision 2, paragraphs 1–2 (2 April 2026), are false: we construct equicorrelated counterexamples and give a sharp accumulated extension of Barron's pointwise approximation bound (1993, Lemma 1). The harmonic upper bound has sharp leading constant one, and the optimal pointwise squared-error envelope is 1/(1+sqrt(d))^2. The same errors are realized by uniform measures on unit vectors, with zero tails; one 64-atom example has total strictly between 1.431 and 1.432. A countably supported measure in a separable Hilbert space has a divergent accumulated squared-error series.",
+    "authors": [
+      {
+        "affiliation": "ChronoAI Pte Ltd, Singapore",
+        "name": "Haobo Ma"
+      },
+      {
+        "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+        "name": "Wenlin Zhang"
+      }
+    ],
+    "concept_doi": null,
+    "current_version": 2,
+    "doi": null,
+    "lean_source": {
+      "revision": "88be2a120b67a9d9e724eaae970c8263d0a0e9a4",
+      "url": "https://github.com/the-omega-institute/trureturing/blob/88be2a120b67a9d9e724eaae970c8263d0a0e9a4/D5/S3/QuadraticForms/AccumulatedSparseRefutation.lean"
+    },
+    "license": "CC-BY-4.0",
+    "msc": [],
+    "pdf": {
+      "bytes": 96738,
+      "sha256": "6a9d2408706ca91cfefa42d21f25c374ba7169c13b1135f4ec0d00a23fffce36",
+      "url": "/api/v1/collected-papers/ekene-accumulated-sparse-errors/files/pdf?version=2"
+    },
+    "previous_version": null,
+    "publication": "public",
+    "published_on": "2026-11-24T01:46:21.963284115Z",
+    "record": "ekene-accumulated-sparse-errors",
+    "repository_name": "ekene-accumulated-sparse-errors",
+    "source": {
+      "bytes": 110013,
+      "sha256": "110418a75086b697c68b0909a9c9971cb17393329849248bd7c31df364065f68",
+      "url": "/api/v1/collected-papers/ekene-accumulated-sparse-errors/files/source?version=2"
+    },
+    "title": "Counterexamples to Ekene E.'s accumulated sparse-error conjectures and a sharp extension of Barron's bound",
+    "versions": [
+      {
+        "previous_version": null,
+        "published_on": "2026-11-24T01:46:21.963284115Z",
+        "revision": "2",
+        "version": 2
+      }
+    ],
+    "work": "ekene-accumulated-sparse-errors"
+  }
+}

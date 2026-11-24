@@ -1,0 +1,15 @@
+{
+  "id": "ekene-accumulated-sparse-errors",
+  "revision": 2,
+  "problem_ids": ["mathoverflow-509794-accumulated-sparse-errors"],
+  "topic": "Accumulated sparse approximation errors, divergent Hilbert examples and sharp pointwise and logarithmic bounds",
+  "title": "Counterexamples to Ekene E.'s accumulated sparse-error conjectures and a sharp extension of Barron's bound",
+  "creators": [
+    {"name": "Ma, Haobo", "affiliation": "ChronoAI Pte Ltd, Singapore"},
+    {"name": "Zhang, Wenlin", "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"}
+  ],
+  "abstract": "Ekene E.'s finite-dimensional and Hilbert-space conjectures in A bound on accumulated PSD contractions, MathOverflow question 509794, revision 2, paragraphs 1–2 (2 April 2026), are false: we construct equicorrelated counterexamples and give a sharp accumulated extension of Barron's pointwise approximation bound (1993, Lemma 1). The harmonic upper bound has sharp leading constant one, and the optimal pointwise squared-error envelope is 1/(1+sqrt(d))^2. The same errors are realized by uniform measures on unit vectors, with zero tails; one 64-atom example has total strictly between 1.431 and 1.432. A countably supported measure in a separable Hilbert space has a divergent accumulated squared-error series.",
+  "summary": "Both accumulated-error conjectures fail. Exact variable-correlation minima give sharp logarithmic growth and the optimal pointwise envelope; a direct sum of finite atomic examples has a divergent total. The classical pointwise estimate is credited to Maurey's empirical method and its published accounts.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/88be2a120b67a9d9e724eaae970c8263d0a0e9a4/D5/S3/QuadraticForms/AccumulatedSparseRefutation.lean"
+}

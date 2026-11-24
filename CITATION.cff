@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this work, cite it."
+title: "Counterexamples to Ekene E.'s accumulated sparse-error conjectures and a sharp extension of Barron's bound"
+authors:
+  - name: "Haobo Ma"
+  - name: "Wenlin Zhang"
+date-released: "2026-11-24"
+version: "2"
+url: "https://mathesis-omega-research.apps.chrono-ai.fun/papers/ekene-accumulated-sparse-errors?version=2"
+license: "CC-BY-4.0"

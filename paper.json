@@ -31,6 +31,7 @@
     "concept_doi": "10.5281/zenodo.24487342",
     "current_version": 2,
     "doi": "10.5281/zenodo.24487343",
+    "kind": "note",
     "lean_source": {
       "revision": "88be2a120b67a9d9e724eaae970c8263d0a0e9a4",
       "url": "https://github.com/the-omega-institute/trureturing/blob/88be2a120b67a9d9e724eaae970c8263d0a0e9a4/D5/S3/QuadraticForms/AccumulatedSparseRefutation.lean"
@@ -55,10 +56,12 @@
     "title": "Counterexamples to Ekene E.'s accumulated sparse-error conjectures and a sharp extension of Barron's bound",
     "versions": [
       {
+        "changelog": null,
         "previous_version": null,
         "published_on": "2026-11-24T01:46:21.963284115Z",
         "revision": "2",
-        "version": 2
+        "version": 2,
+        "version_label": null
       }
     ],
     "work": "ekene-accumulated-sparse-errors"
